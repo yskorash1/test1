@@ -1,0 +1,13 @@
+jobs:
+  include:
+    - stage: check_pep8
+      language: python
+      python: 3.10
+      before_install:
+        python -m pip install --upgrade pip
+        pip install flake8
+        if [-f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      script:
+        "flake8"
+        - #здесь должен быть некоторый код, проверяющий с flake8 все скрипты с расширением .py, если есть ошибки - возвращается false
