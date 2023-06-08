@@ -1,6 +1,5 @@
-name:flake8 check
-on:push
-
+name: flake8 check
+on: push
 jobs:
   lint:
      runs-on: ubuntu-latest
@@ -16,6 +15,6 @@ jobs:
             python -m pip install --upgrade pip
             pip install flake8
             if [-f requirements.txt ]; then pip install -r requirements.txt; fi
-        - name:flake8 code check 
+        - name: flake8 code check 
           run: | 
             find . -type f -name "*.py" -print0 | xargs -0 flake8
